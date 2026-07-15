@@ -238,6 +238,7 @@ def main() -> None:
     session_dirs = sorted(
         [d for d in SESSION_STATE_DIR.iterdir() if d.is_dir()],
         key=lambda d: (d / "events.jsonl").stat().st_mtime if (d / "events.jsonl").exists() else 0,
+        reverse=True,
     )
 
     sessions = []
